@@ -1,18 +1,47 @@
+import java.io.Serializable;
 
-public class Person implements Comparable<Object>{
+/**
+ * File: Person.java 
+ * Class: CSCI 1302 
+ * Author: Taylor O'Neal, Seraphina Morrison 
+ * Created on: April 19th, 2024 
+ * Last Modified: April 19th, 2024 
+ * Description:
+ */
+
+public class Person implements Comparable<Object>, Serializable {
 	private int age;
-	private String name = "";
-	private String address = "";
-	private int zip;
+	private String name;
+	private String address;
+	private int zipCode;
 	private double salary;
 	
-	public Person() {
+	Person() {
 		
 	}
 	
+	Person(int age, String name, String address, int zipCode, double salary) {
+		setAge(age);
+		setName(name);
+		setAddress(address);
+		setZipCode(zipCode);
+		setSalary(salary);
+	}
+	
+	@Override 
+	public int compareTo(Object o) {
+		if (this.getSalary() > ((Person) o).getSalary()) {
+			return 1;
+		} else if (this.getSalary() < ((Person) o).getSalary()) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
+	
 	public String toString() {
-		return String.format("%d %s %s %d $%,.2f%n"
-				, getAge(), getName(), getAddress(), getZip(), getSalary());
+		return String.format("%d %s %s %d $%,.2f%n", getAge(), getName(), getAddress(), getZipCode(), getSalary());
+		
 	}
 	public int getAge() {
 		return age;
@@ -38,12 +67,12 @@ public class Person implements Comparable<Object>{
 		this.address = address;
 	}
 
-	public int getZip() {
-		return zip;
+	public int getZipCode() {
+		return zipCode;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public double getSalary() {
@@ -53,11 +82,4 @@ public class Person implements Comparable<Object>{
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 }
