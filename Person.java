@@ -7,7 +7,19 @@ public class Person implements Comparable<Object>{
 	private double salary;
 	
 	public Person() {
-		
+		setAge(27);
+		setName("Rhea Ripley");
+		setAddress("123 Hot Bitches Ln.");
+		setZip(31313);
+		setSalary(100000000);
+	}
+	
+	public Person (int age, String name, String address, int zip, double salary) {
+		setAge(age);
+		setName(name);
+		setAddress(address);
+		setZip(zip);
+		setSalary(salary);
 	}
 	
 	public String toString() {
@@ -56,8 +68,13 @@ public class Person implements Comparable<Object>{
 
 	@Override
 	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (this.getSalary() > ((Person) o).getSalary()) {
+			return 1;
+		} else if (this.getSalary() < ((Person) o).getSalary()) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 	
 }
