@@ -25,7 +25,7 @@ public class Lab11Prob01 {
 				output.writeDouble(input.readDouble());
 			}
 		} catch (EOFException e) {
-			System.out.println("Reached end of file");
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -39,7 +39,7 @@ public class Lab11Prob01 {
 				System.out.println("Salary: " + input.readDouble());
 			}
 		} catch (EOFException e) {
-			System.out.println("Reached end of file");
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
