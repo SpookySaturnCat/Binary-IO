@@ -32,11 +32,7 @@ public class Lab11Prob01 {
 
 		try (DataInputStream input = new DataInputStream(new FileInputStream("src/people-copy.dat"));) {
 			while (true) {
-				System.out.println("Age: " + input.readInt());
-				System.out.println("First and Last Name: " + input.readUTF());
-				System.out.println("Address: " + input.readUTF());
-				System.out.println("Zip Code: " + input.readInt());
-				System.out.println("Salary: " + input.readDouble());
+				System.out.println(input.readInt() + " " + input.readUTF() + " " + input.readUTF() + " " + input.readInt() + " " + input.readDouble());
 			}
 		} catch (EOFException e) {
 			e.printStackTrace();
